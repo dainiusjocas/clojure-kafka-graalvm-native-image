@@ -1,0 +1,20 @@
+FROM oracle/graalvm-ce:20.0.0-java11 as BUILDER
+
+ENV GRAALVM_HOME=$JAVA_HOME
+
+RUN gu install native-image \
+    && curl -O https://download.clojure.org/install/linux-install-1.10.1.510.sh \
+    && chmod +x linux-install-1.10.1.510.sh \
+    && ./linux-install-1.10.1.510.sh \
+    && rm linux-install-1.10.1.510.sh
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY deps.edn /usr/src/app/
+RUN clojure -R:native-image
+COPY resources/ /usr/src/app/resources
+COPY graalvm/ /usr/src/app/graalvm/
+COPY src/ /usr/src/app/src
+
+RUN clojure -A:native-image

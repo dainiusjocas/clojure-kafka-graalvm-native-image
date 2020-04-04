@@ -1,0 +1,29 @@
+{:paths
+ ["src" "resources"]
+ :deps
+ {org.clojure/clojure             {:mvn/version "1.10.2-alpha1"}
+  org.clojure/tools.logging       {:mvn/version "1.0.0"}
+  ch.qos.logback/logback-core     {:mvn/version "1.2.3"}
+  ch.qos.logback/logback-classic  {:mvn/version "1.2.3"}
+  io.quarkus/quarkus-kafka-client {:mvn/version "1.3.1.Final"
+                                   :exclusions  [org.jboss.slf4j/slf4j-jboss-logging
+                                                 org.jboss.logging/jboss-logging]}}
+ :aliases
+ {:native-image
+  {:main-opts  ["-m clj.native-image core"
+                "--enable-https"
+                "--no-fallback"
+                "--allow-incomplete-classpath"
+                "--initialize-at-build-time"
+                "--enable-all-security-services"
+                "-H:ReflectionConfigurationFiles=graalvm/reflect-config.json"
+                "-H:+ReportExceptionStackTraces"
+                "--initialize-at-run-time=com.fasterxml.jackson.dataformat.cbor.CBORFactory"
+                ;; optional native image name override
+                "-H:Name=clj-kafka"]
+   :jvm-opts   ["-Dclojure.compiler.direct-linking=true"]
+   :extra-deps {clj.native-image
+                {:git/url    "https://github.com/taylorwood/clj.native-image.git"
+                 :exclusions [commons-logging/commons-logging
+                              org.slf4j/slf4j-nop]
+                 :sha        "7708e7fd4572459c81f6a6b8e44c96f41cdd92d4"}}}}}

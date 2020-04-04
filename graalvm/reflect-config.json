@@ -1,0 +1,48 @@
+[
+  {
+    "name":"org.apache.kafka.clients.consumer.ConsumerConfig",
+    "allPublicFields":true
+  },
+  {
+    "name":"org.apache.kafka.clients.consumer.KafkaConsumer",
+    "allPublicMethods":true,
+    "allPublicConstructors":true
+  },
+  {
+    "name":"org.apache.kafka.clients.consumer.RangeAssignor",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.apache.kafka.clients.producer.KafkaProducer",
+    "allPublicMethods":true,
+    "allPublicConstructors":true
+  },
+  {
+    "name":"org.apache.kafka.clients.producer.ProducerConfig",
+    "allPublicFields":true
+  },
+  {
+    "name":"org.apache.kafka.clients.producer.ProducerRecord",
+    "allPublicConstructors":true
+  },
+  {
+    "name":"org.apache.kafka.clients.producer.internals.DefaultPartitioner",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.apache.kafka.common.serialization.LongDeserializer",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.apache.kafka.common.serialization.LongSerializer",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.apache.kafka.common.serialization.StringDeserializer",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  },
+  {
+    "name":"org.apache.kafka.common.serialization.StringSerializer",
+    "methods":[{"name":"<init>","parameterTypes":[] }]
+  }
+]
