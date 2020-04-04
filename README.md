@@ -1,6 +1,6 @@
 # clojure-kafka-graavm-native-image
 
-It turns out that it is possible to compile Kafka Producer and Consumer to get compiled with GraalVM native-image.
+It turns out that it is possible to compile Kafka Producer and Consumer with GraalVM native-image and the demo is all in Clojure.
 
 ## TL;DR
 
